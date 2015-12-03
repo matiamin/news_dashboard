@@ -5,7 +5,7 @@ var methodOverride = require("method-override");
 //may need to rename this database!!!
 mongoose.connect("mongodb://localhost/users");
 var app = express();
-app.use(Express.statis(path.join(__disname, "/public")));
+// app.use(express.static(__dirname, "/public"));
 app.use(bodyParser.json());
 
 
