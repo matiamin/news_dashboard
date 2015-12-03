@@ -8,7 +8,6 @@ var app = express();
 // app.use(express.static(__dirname, "/public"));
 app.use(bodyParser.json());
 
-
 app.get("/", function(req,res) {
   res.send("Dope ass Project 3");
 });
