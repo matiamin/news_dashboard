@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
+// allow public files
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", function(req,res) {
   res.send("Dope ass Project 3");
