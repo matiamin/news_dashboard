@@ -5,5 +5,11 @@ var TopicModel = require("../models/topic");
 
 //instantiates a usersController which will contain all of our controller actions
 var usersController = {
-  
-}
+  index: function(req, res){
+    UserModel.find({}, function(err, docs){
+      res.render("users/index", {users: docs});
+    });
+  }
+};
+
+module.exports = usersController;
