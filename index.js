@@ -14,9 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
-app.listen(3000, function() {
-  console.log("Got this blicky up and running!");
-});
 
 app.get("/", function(req,res) {
   res.send("Dope ass Project 3");
@@ -25,3 +22,8 @@ app.get("/", function(req,res) {
 //routes for all requests to this express app that map to
 //an action/function in our authorsController
 app.get("/users", usersController.index);
+
+
+app.listen(3000, function() {
+  console.log("Got this blicky up and running!");
+});
