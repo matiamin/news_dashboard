@@ -9,6 +9,7 @@ var session = require("express-session");
 //loads module containing all users controller actions.
 var topicsController = require("./controllers/topicsController");
 var usersController = require("./controllers/usersController");
+var UserModel = require("./models/user");
 
 //may need to rename this database!!!
 mongoose.connect("mongodb://localhost/users");

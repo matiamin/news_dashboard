@@ -7,6 +7,18 @@ var flash = require("connect-flash");
 // }
 
 var usersController = {
+
+  getLogin: function(req, res){
+    res.render("users/login");
+  },
+  postLogin: function(req, res){
+    var loginProperty = passport.authenticate("local-login", {
+      successRedirect : "/topics",
+      failureRedirect : "/login",
+      // failureFlash : true
+    });
+    return loginProperty(req, res);
+  },
   getSignup: function(req, res){
     res.render("users/signup", {message: req.flash('signupMessage')});
   },
@@ -17,17 +29,6 @@ var usersController = {
       failureFlash : true
     });
     return signupStrategy(req, res);
-  },
-  getLogin: function(req, res){
-    res.render("users/login");
-  },
-  postLogin: function(req, res){
-    var loginProperty = passport.authenticate("local-login", {
-      successRedirect : "/topics",
-      failureRedirect : "/login",
-      failureFlash : true
-    });
-    return loginProperty(req, res);
   },
   getLogout: function(req, res){
     req.logout();
