@@ -36,5 +36,5 @@ mongoose.model("Topic", Topic);
 //add later
 // mongoose.model("Article", ArticleSchema);
 User.methods.encrypt = function(password) {
-   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
- };
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};

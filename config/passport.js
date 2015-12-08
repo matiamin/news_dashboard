@@ -1,5 +1,6 @@
 var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../models/user');
+var Schema          = require("../db/schema");
 
 module.exports = function(passport) {
   passport.use('local-signup', new LocalStrategy({

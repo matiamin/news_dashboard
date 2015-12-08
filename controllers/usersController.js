@@ -1,4 +1,5 @@
 var passport = require("passport");
+var flash = require("connect-flash");
 
 //GET /signup
 // function getSignup(request, response){
