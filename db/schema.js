@@ -13,7 +13,7 @@ var Schema = mongoose.Schema,
 // });
 
 // defining schema for topics
-var TopicSchema = new Schema({
+var Topic = new Schema({
   keyword: String,
   //Add this to schema upon twitter api integration
   // source: String
@@ -21,15 +21,20 @@ var TopicSchema = new Schema({
 });
 
 // defining schema for users.
-var UserSchema = new Schema({
-  name: String,
-  password: String,
-  topics: [TopicSchema]
+var User = new Schema({
+  local : {
+    email: String,
+    password: String,
+  },
+  topics: [Topic]
 });
 
 // setting models in mongoose utilizing schemas defined above, we'll be using
 // these frequently throughout our app
-mongoose.model("User", UserSchema);
-mongoose.model("Topic", TopicSchema);
+mongoose.model("User", User);
+mongoose.model("Topic", Topic);
 //add later
 // mongoose.model("Article", ArticleSchema);
+User.methods.encrypt = function(password) {
+   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+ };
