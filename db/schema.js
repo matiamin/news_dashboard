@@ -1,5 +1,6 @@
 // requiring mongoose dependency
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 // instantiate a name space for our Schema constructor defined by mongoose.
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
@@ -29,12 +30,12 @@ var User = new Schema({
   topics: [Topic]
 });
 
+User.methods.encrypt = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
 // setting models in mongoose utilizing schemas defined above, we'll be using
 // these frequently throughout our app
 mongoose.model("User", User);
 mongoose.model("Topic", Topic);
 //add later
 // mongoose.model("Article", ArticleSchema);
-User.methods.encrypt = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
