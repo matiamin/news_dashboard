@@ -30,8 +30,16 @@ app.use(flash());
 
 require("./config/passport")(passport);
 
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 app.get("/signup", usersController.getSignup);
 app.post("/signup", usersController.postSignup);
+app.get("/login", usersController.getLogin);
+app.post("/login", usersController.postLogin);
+app.get("/logout", usersController.getLogout);
 //routes for all requests to this express app that map to
 //an action/function in our authorsController
 app.get("/topics", topicsController.index);

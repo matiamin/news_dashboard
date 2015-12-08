@@ -33,6 +33,11 @@ var User = new Schema({
 User.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
+
+//use the method user.validatePassword()
+User.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.local.password);
+};
 // setting models in mongoose utilizing schemas defined above, we'll be using
 // these frequently throughout our app
 mongoose.model("User", User);
