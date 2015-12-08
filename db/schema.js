@@ -22,8 +22,10 @@ var TopicSchema = new Schema({
 
 // defining schema for users.
 var UserSchema = new Schema({
-  name: String,
-  password: String,
+  local : {
+    email: String,
+    password: String,
+  },
   topics: [TopicSchema]
 });
 
@@ -33,3 +35,6 @@ mongoose.model("User", UserSchema);
 mongoose.model("Topic", TopicSchema);
 //add later
 // mongoose.model("Article", ArticleSchema);
+User.methods.encrypt = function(password) {
+   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+ };
