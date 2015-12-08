@@ -8,7 +8,7 @@ var flash = require("connect-flash");
 
 var usersController = {
   getSignup: function(req, res){
-    res.render("users/signup");
+    res.render("users/signup", {message: req.flash('signupMessage')});
   },
   postSignup: function(req, res){
     var signupStrategy = passport.authenticate("local-signup", {

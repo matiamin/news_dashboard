@@ -14,7 +14,7 @@ module.exports = function(passport) {
 
       // If there already is a user with this email
       if (user) {
-        return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
+        return callback(null, false, req.flash('signupMessage', 'Email already in Use'));
       } else {
         // There is no email registered with this emai
         // Create a new user
@@ -53,11 +53,11 @@ module.exports = function(passport) {
       }
       // If no user is found. Also, add flash msgs later
       if (!user) {
-        return callback(null, false);
+        return callback(null, false, req.flash('loginMessage', 'User Not Found'));
       }
       // Wrong password. Also, add flash msgs later
       if (!user.validPassword(password)) {
-        return callback(null, false);
+        return callback(null, false, req.flash('loginMessage', 'Password Incorrect'));
       }
       return callback(null, user);
     });
