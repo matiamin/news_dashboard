@@ -23,9 +23,6 @@ app.use(methodOverride("_method"));
 // allow public files
 app.use(express.static(__dirname + '/public'));
 
-app.get("/signup", usersController.getSignup);
-app.post("/signup", usersController.postSignup);
-
 app.use(session({ secret: 'PROJECT-3' }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -33,6 +30,8 @@ app.use(flash());
 
 require("./config/passport")(passport);
 
+app.get("/signup", usersController.getSignup);
+app.post("/signup", usersController.postSignup);
 //routes for all requests to this express app that map to
 //an action/function in our authorsController
 app.get("/topics", topicsController.index);
