@@ -13,10 +13,25 @@ var usersController = {
   postSignup: function(req, res){
     var signupStrategy = passport.authenticate("local-signup", {
       successRedirect : "/topics/new",
-      failureRedirect : "/",
-      failureFalsh : true
+      failureRedirect : "/signup",
+      failureFlash : true
     });
     return signupStrategy(req, res);
+  },
+  getLogin: function(req, res){
+    res.render("users/login");
+  },
+  postLogin: function(req, res){
+    var loginProperty = passport.authenticate("local-login", {
+      successRedirect : "/topics",
+      failureRedirect : "/login",
+      failureFlash : true
+    });
+    return loginProperty(req, res);
+  },
+  getLogout: function(req, res){
+    req.logout();
+    res.redirect("/login");
   }
 };
 

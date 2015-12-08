@@ -1,13 +1,13 @@
 <!doctype html>
 
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
-  </head>
-  <body>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+</head>
+<body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,21 +16,19 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul>
+      {{#if currentUser}}
+        <li><a href="/logout">Logout {{currentUser.local.email}}</a></li<a>
+      {{else}}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+      {{/if}}
+    </ul>
+
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="#">Edit Name</a></li>
-              <li><a href="#">Sign Out</a></li>
-              <!-- <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li> -->
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Topic <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Topic <span class="caret"></span></a>
+            <ul class="dropdown-menu">
               <li><a href="#">Remove Topic</a></li>
               <li><a href="#">       </a></li>
               <!-- <li role="separator" class="divider"></li>
@@ -40,8 +38,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add Topic <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add Topic <span class="caret"></span></a>
+            <ul class="dropdown-menu">
               <li><a href="#">       </a></li>
               <li><a href="#">       </a></li>
               <!-- <li role="separator" class="divider"></li>
@@ -51,19 +49,19 @@
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-</nav>
-<div class="row">
-  <div class="col-md-9"><h2>Article 1</h2></div>
-  <div class="col-md-3">Twitter</div>
-  <div class="col-md-9"><h2>Article 2</h2></div>
-  <div class="col-md-3">Twitter</div>
-  <div class="col-md-9"><h2>Article 3</h2></div>
-  <div class="col-md-3">Twitter</div>
-  <div class="col-md-9"><h2>Article 4</h2></div>
-  <div class="col-md-3">Twitter</div>
-  <div class="col-md-9"><h2>Article 5</h2></div>
-  <div class="col-md-3">Twitter</div>
-</div>
-    {{{body}}}
-  </body>
+  </nav>
+  <div class="row">
+    <div class="col-md-9"><h2>Article 1</h2></div>
+    <div class="col-md-3">Twitter</div>
+    <div class="col-md-9"><h2>Article 2</h2></div>
+    <div class="col-md-3">Twitter</div>
+    <div class="col-md-9"><h2>Article 3</h2></div>
+    <div class="col-md-3">Twitter</div>
+    <div class="col-md-9"><h2>Article 4</h2></div>
+    <div class="col-md-3">Twitter</div>
+    <div class="col-md-9"><h2>Article 5</h2></div>
+    <div class="col-md-3">Twitter</div>
+  </div>
+  {{{body}}}
+</body>
 </html>
