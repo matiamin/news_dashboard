@@ -4,8 +4,11 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var passport = require("passport");
+var session = require("express-session");
 //loads module containing all users controller actions.
 var topicsController = require("./controllers/topicsController");
+var usersController = require("./controllers/usersController");
+
 //may need to rename this database!!!
 mongoose.connect("mongodb://localhost/users");
 var app = express();
@@ -19,9 +22,7 @@ app.use(methodOverride("_method"));
 // allow public files
 app.use(express.static(__dirname + '/public'));
 
-app.get("/", function(req,res) {
-  res.send("Dope ass Project 3");
-});
+app.get("/signup", usersController.getSignup);
 
 app.use(session({ secret: 'PROJECT-3' }));
 app.use(passport.initialize());
