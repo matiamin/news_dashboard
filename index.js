@@ -35,10 +35,10 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get("/signup", usersController.getSignup);
-app.post("/signup", usersController.postSignup);
 app.get("/login", usersController.getLogin);
 app.post("/login", usersController.postLogin);
+app.get("/signup", usersController.getSignup);
+app.post("/signup", usersController.postSignup);
 app.get("/logout", usersController.getLogout);
 //routes for all requests to this express app that map to
 //an action/function in our authorsController
