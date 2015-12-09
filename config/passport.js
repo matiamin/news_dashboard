@@ -71,9 +71,9 @@ passport.use('local-login', new LocalStrategy({
 
 //TWITTER STRATEGY
 passport.use("twitter", new TwitterStrategy({
-  consumerKey: env.consumerKey,
-  consumerSecret: env.consumerSecret,
-  callbackUrl: env.callbackUrl
+  consumerKey: env.twitter.consumerKey,
+  consumerSecret: env.twitter.consumerSecret,
+  callbackUrl: env.twitter.callbackUrl
 }, function(token, secret, profile, done){
   process.nextTick(function(){
     User.findOne({"twitter.id": profile.id}, function(err, user){
