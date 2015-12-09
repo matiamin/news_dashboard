@@ -23,7 +23,7 @@ app.set('src', './templates');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 app.use(session({ secret: 'PROJECT-3' }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -59,6 +59,7 @@ app.get('/auth/twitter/callback',passport.authenticate('twitter', {
   successRedirect: '/topics',
   failureRedirect: '/login'
 }));
+
 
 app.listen(3000, function() {
   console.log("Got this blicky up and running!");
