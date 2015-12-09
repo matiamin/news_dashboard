@@ -1,5 +1,6 @@
 $( document ).ready(function() {
   console.log("ready!");
+
   var searchKeyword = function(keyword) {
     var url = 'https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources=%27news%27&Query=%27'+ encodeURI(keyword) + '%27&$format=json';
     $.ajax({
@@ -11,7 +12,7 @@ $( document ).ready(function() {
       type: 'GET'
     }).done(function(response) {
       for(var i = 0; i < 5; i++) {
-        $('.articles').append("<div><h1><a href='" + response.d.results[0].News[i].Url + "'>" + response.d.results[0].News[i].Title + "</a></h1></div>");
+        $('.articles').append("<div><h4><a href='" + response.d.results[0].News[i].Url + "'>" + response.d.results[0].News[i].Title + "</a></h4><p>News Source: " + response.d.results[0].News[i].Source + "</p><p>" + response.d.results[0].News[i].Date + "</p><p>" + response.d.results[0].News[i].Description +  "</p></div>");
       }
     }).fail(function() {
       console.log('failed!');
