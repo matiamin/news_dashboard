@@ -17,6 +17,17 @@ var topicsController = {
   new: function(req, res) {
     res.render("topics/new");
   },
+
+  create: function(req, res) {
+    //NEED TO FIND OUT IF WE CAN ACCESS CURRENTUSER HERE
+    var topic = new TopicModel({keyword: req.body.keyword});
+    topic.save(function(err){
+      if(!err) {
+        console.log(err);
+        res.redirect("topics");
+      }
+    });
+  }
 };
 
 // exports the controller so we can use the file as the controller.
