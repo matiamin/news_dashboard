@@ -72,7 +72,8 @@ passport.use("twitter", new TwitterStrategy({
   consumerKey: env.twitter.consumerKey,
   consumerSecret: env.twitter.consumerSecret,
   callbackUrl: env.twitter.callbackUrl
-}, function(token, secret, profile, done){
+},
+function(token, secret, profile, done){
   process.nextTick(function(){
     User.findOne({"twitter.id": profile.id}, function(err, user){
 
@@ -90,7 +91,8 @@ passport.use("twitter", new TwitterStrategy({
         newUser.twitter.displayName = profile.displayName;
 
         newUser.save(function(err){
-          if(err) throw err;
+          if(err)
+            throw err;
           return done(null, newUser);
         });
       }
