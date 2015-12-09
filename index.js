@@ -10,6 +10,8 @@ var session = require("express-session");
 var topicsController = require("./controllers/topicsController");
 var usersController = require("./controllers/usersController");
 var UserModel = require("./models/user");
+//FOR TWITTER routes
+var router = express.Router();
 
 //may need to rename this database!!!
 mongoose.connect("mongodb://localhost/users");
@@ -44,8 +46,14 @@ app.get("/logout", usersController.getLogout);
 //routes for all requests to this express app that map to
 //an action/function in our authorsController
 app.get("/topics", topicsController.index);
-
 app.get('/topics/new', topicsController.new );
+
+//TWITTER ROUTES
+router.route('/auth/twitter/callback')
+.get(passport.authenticate('twitter', {
+  successRedirect: '/topics/new',
+  failureRedirect: '/login'
+}));
 
 app.listen(3000, function() {
   console.log("Got this blicky up and running!");
