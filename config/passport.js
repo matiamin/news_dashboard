@@ -16,7 +16,7 @@ module.exports = function(passport) {
       if (user) {
         return callback(null, false, req.flash('signupMessage', 'Email already in Use'));
       } else {
-        // There is no email registered with this emai
+        // There is no email registered with this email
         // Create a new user
         var newUser            = new User();
         newUser.local.email    = email;
