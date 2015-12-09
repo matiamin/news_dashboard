@@ -26,8 +26,8 @@ app.use(methodOverride("_method"));
 app.use(express.static('public'));
 // required for passport
 app.use(session({ secret:'fruitbat',
-                 saveUninitialized: true,
-                 resave: true}));
+saveUninitialized: true,
+resave: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -66,7 +66,8 @@ function authenticatedUser(req, res, next){
 app.get('/auth/twitter',passport.authenticate('twitter'));
 
 
-app.get('/auth/twitter/callback',passport.authenticate('twitter', {
+app.get('/auth/twitter/callback',
+passport.authenticate('twitter', {
   successRedirect: '/topics',
   failureRedirect: '/login'
 }));
