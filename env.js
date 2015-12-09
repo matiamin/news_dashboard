@@ -1,6 +1,3 @@
-// env.js
-
-// The below information can be found in the application management page of your Twitter app - https://apps.twitter.com/
 module.exports = {
   sessionSecret: "fruitbat",
   twitter: {
