@@ -19,10 +19,7 @@
     "mongoose": "^4.2.9",
     "nodemon": "^1.8.1",
     "passport": "^0.3.2",
-<<<<<<< HEAD
-=======
     "passport-facebook": "^2.0.0",
->>>>>>> 617ae3ed20adb4ae6ec2bde6e5bca6f5a2597676
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.3"
   }
