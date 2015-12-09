@@ -24,7 +24,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use(express.static('public'));
-app.use(session({ secret: 'PROJECT-3' }));
+app.use(session({secret:'fruitbat',
+                 saveUninitialized: true,
+                 resave: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
