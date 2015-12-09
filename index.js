@@ -14,9 +14,10 @@ var UserModel = require("./models/user");
 //may need to rename this database!!!
 mongoose.connect("mongodb://localhost/users");
 var app = express();
-//hanlebars for view
+//handlebars for view
 app.set("view engine", "hbs");
-// app.use(express.static(__dirname, "/public"));
+app.set('src', './templates');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
