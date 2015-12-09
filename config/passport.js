@@ -16,7 +16,6 @@ passport.use('local-signup', new LocalStrategy({
   // Find a user with this e-mail
   User.findOne({ 'local.email' :  email }, function(err, user) {
     if (err) return callback(err);
-
     // If there already is a user with this email
     if (user) {
       return callback(null, false, req.flash('signupMessage', 'Email already in Use'));
@@ -26,7 +25,6 @@ passport.use('local-signup', new LocalStrategy({
       var newUser            = new User();
       newUser.local.email    = email;
       newUser.local.password = newUser.encrypt(password);
-
       newUser.save(function(err) {
         if (err) throw err;
         return callback(null, newUser);
