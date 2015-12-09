@@ -10,8 +10,9 @@ var session = require("express-session");
 var topicsController = require("./controllers/topicsController");
 var usersController = require("./controllers/usersController");
 var UserModel = require("./models/user");
-//FOR TWITTER routes
-var router = express.Router();
+//Twitter
+// var router = express.Router();
+
 
 //may need to rename this database!!!
 mongoose.connect("mongodb://localhost/users");
@@ -48,10 +49,18 @@ app.get("/logout", usersController.getLogout);
 app.get("/topics", topicsController.index);
 app.get('/topics/new', topicsController.new );
 
-//TWITTER ROUTES
-router.route('/auth/twitter/callback')
-.get(passport.authenticate('twitter', {
-  successRedirect: '/topics/new',
+//TWITTER
+function authenticatedUser(req, res, next){
+  if (req.isAuthenticated()) return next();
+
+  res.redirect("/topics");
+}
+// // passport.authenticate('twitter') is all we need to trigger that redirect to Twitter.
+app.get('/auth/twitter',passport.authenticate('twitter'));
+
+
+app.get('/auth/twitter/callback',passport.authenticate('twitter', {
+  successRedirect: '/',
   failureRedirect: '/login'
 }));
 
