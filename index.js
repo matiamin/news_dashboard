@@ -27,6 +27,12 @@ app.use(express.static('public'));
 app.use(session({secret:'fruitbat',
                  saveUninitialized: true,
                  resave: true}));
+
+// allow public files
+app.use(express.static(__dirname + '/public'));
+
+// required for passport
+app.use(session({ secret: 'PROJECT-3' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -36,6 +42,11 @@ require("./config/passport")(passport);
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   next();
+});
+
+// home page
+app.get('/', function(req, res){
+  res.render('users/index.hbs');
 });
 
 app.get("/login", usersController.getLogin);
