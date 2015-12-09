@@ -20,11 +20,19 @@ var topicsController = {
 
   create: function(req, res) {
     //NEED TO FIND OUT IF WE CAN ACCESS CURRENTUSER HERE
-    var topic = new TopicModel({keyword: req.body.keyword});
-    topic.save(function(err){
+    //perhaps currentUser.topics.push(topic?)
+    // var topic = new TopicModel({keyword: req.body.keyword});
+    // topic.save(function(err){
+    //   if(!err) {
+    //     console.log(err);
+    //     res.redirect("topics");
+    //   }
+    // });
+    var currentUser = req.user;
+    currentUser.topics.push(new TopicModel({keyword: req.body.keyword}));
+    currentUser.save(function(err){
       if(!err) {
-        console.log(err);
-        res.redirect("topics");
+        res.redirect('topics');
       }
     });
   }
