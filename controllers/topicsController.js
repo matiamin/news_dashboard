@@ -28,6 +28,7 @@ var topicsController = {
     //     res.redirect("topics");
     //   }
     // });
+    
     var currentUser = req.user;
     currentUser.topics.push(new TopicModel({keyword: req.body.keyword}));
     currentUser.save(function(err){
