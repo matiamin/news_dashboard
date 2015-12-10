@@ -5,7 +5,7 @@ body {
 }
 
 .navbar-default {
-  background-color: #F5F5F5;
+  background-color: #FFF;
 }
 
 .navbar-default .navbar-header .navbar-brand {
@@ -20,6 +20,14 @@ body {
   font-weight: 600;
   color: #FFF;
   font-size: 15px;
+}
+
+.article {
+  margin: 30px;
+}
+
+.date {
+  font-weight: 400;
 }
 
 /*video#bgvid{

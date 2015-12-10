@@ -14,7 +14,7 @@ $( document ).ready(function() {
       //Empties the articles div after a successful api call.
       $('.articles').empty();
       for(var i = 0; i < 5; i++) {
-        $('.articles').append("<div><h4><a href='" + response.d.results[0].News[i].Url + "'>" + response.d.results[0].News[i].Title + "</a></h4><p>News Source: " + response.d.results[0].News[i].Source + "</p><p>" + response.d.results[0].News[i].Date + "</p><p>" + response.d.results[0].News[i].Description +  "</p></div>");
+        $('.articles').append("<div class='article'><h3><a href='" + response.d.results[0].News[i].Url + "'>" + response.d.results[0].News[i].Title + "</a></h3><p>News Source: " + response.d.results[0].News[i].Source + "</p><p>" + response.d.results[0].News[i].Date + "</p><p>" + response.d.results[0].News[i].Description +  "</p></div>");
       }
     }).fail(function() {
       console.log('failed!');
