@@ -2,9 +2,12 @@ var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../models/user');
 var Schema          = require("../db/schema");
 // (1) TwitterStrategy: middleware required to implement Twitter login via Passport.
-// (2) Env: so we can access our Twitter API information.
+// (2) FacebookStrategy: middleware required to implement Facebook login via Passport.
+// (3) Env: so we can access our Twitter API information.
 var TwitterStrategy = require('passport-twitter').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var env             = require('../env');
+
 
 //Creating a new User based on the information passed to us from Twitter.
 module.exports = function(passport) {
@@ -71,7 +74,7 @@ passport.use('local-login', new LocalStrategy({
 passport.use("twitter", new TwitterStrategy({
   consumerKey: env.twitter.consumerKey,
   consumerSecret: env.twitter.consumerSecret,
-  callbackUrl: env.twitter.callbackUrl
+  callbackURL: env.twitter.callbackURL
 },
 function(token, secret, profile, done){
   process.nextTick(function(){
@@ -99,6 +102,20 @@ function(token, secret, profile, done){
     });
   });
 }
-
 ));
+
+//FACEBOOK STRATEGY
+passport.use(new FacebookStrategy({
+  clientID: env.facebook.consumerKey,
+  clientSecret: env.facebook.consumerSecret,
+  callbackURL: env.facebook.callbackURL
+},
+function(accessToken, refreshToken, profile, done){
+  User.findOrCreate({ facebookId: profile.id}, function(err, user){
+    if (err) { return done(err);}
+    done(null, user);
+  });
+}
+));
+
 };
