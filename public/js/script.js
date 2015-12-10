@@ -21,6 +21,9 @@ $( document ).ready(function() {
     });
   };
 
+  var topic = $('.topic')[0].innerHTML;
+  searchKeyword(topic);
+
   $('.topic').on('click', function() {
     console.log("clicked!");
     searchKeyword($(this).text());
