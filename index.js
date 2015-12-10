@@ -64,8 +64,6 @@ function authenticatedUser(req, res, next){
 }
 // // passport.authenticate('twitter') is all we need to trigger that redirect to Twitter.
 app.get('/auth/twitter',passport.authenticate('twitter'));
-
-
 app.get('/auth/twitter/callback',
 passport.authenticate('twitter', {
   successRedirect: '/topics',
@@ -74,6 +72,16 @@ passport.authenticate('twitter', {
 
 // REMEMBER TO CHANGE THE URL WHEN DEPLOYING TO HEROKU
 // YOU CAN USE AN || STATEMENT
+//FACEBOOK
+app.get('/auth/facebook',
+  passport.authenticate('facebook', { scope : "email"}));
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/topics',
+    failureRedirect: '/login'
+  }));
+
 app.listen(3000, function() {
   console.log("Got this blicky up and running!");
 });
