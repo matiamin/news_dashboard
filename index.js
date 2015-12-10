@@ -44,7 +44,7 @@ app.use(function (req, res, next) {
 
 // home page
 app.get('/', function(req, res){
-  res.render('users/index.hbs');
+  res.render('users/index.hbs', { layout: false}); //
 });
 
 app.get("/login", usersController.getLogin);
@@ -72,7 +72,8 @@ passport.authenticate('twitter', {
   failureRedirect: '/login'
 }));
 
-
+// REMEMBER TO CHANGE THE URL WHEN DEPLOYING TO HEROKU
+// YOU CAN USE AN || STATEMENT
 app.listen(3000, function() {
   console.log("Got this blicky up and running!");
 });
