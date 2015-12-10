@@ -64,13 +64,22 @@ function authenticatedUser(req, res, next){
 }
 // // passport.authenticate('twitter') is all we need to trigger that redirect to Twitter.
 app.get('/auth/twitter',passport.authenticate('twitter'));
-
-
 app.get('/auth/twitter/callback',
 passport.authenticate('twitter', {
   successRedirect: '/topics',
   failureRedirect: '/login'
 }));
+
+//FACEBOOK
+app.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login'}),
+  function(req, res){
+    //successful authentication should redirect to home.
+    res.redirect("/");
+  });
 
 
 app.listen(3000, function() {
