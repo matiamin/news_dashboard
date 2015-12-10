@@ -25,10 +25,4 @@ $( document ).ready(function() {
     console.log("clicked!");
     searchKeyword($(this).text());
   });
-  // if (currentUser) {
-  //   console.log(currentUser);
-  //   searchKeyword($('.topic[0]').text());
-  // } else {
-  //   ("/");
-  // }
 });
