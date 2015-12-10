@@ -34,6 +34,13 @@ var User = new Schema({
     username: String,
     displayName: String
   },
+  // THE FACEBOOK object is used when a user signs up or logs in via Facebook. 
+  facebook : {
+    id: String,
+    token: String,
+    username: String,
+    displayName: String
+  },
   topics: [Topic]
 });
 
