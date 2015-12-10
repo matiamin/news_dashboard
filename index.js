@@ -72,15 +72,13 @@ passport.authenticate('twitter', {
 
 //FACEBOOK
 app.get('/auth/facebook',
-  passport.authenticate('facebook'));
+  passport.authenticate('facebook', { scope : "email"}));
 
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login'}),
-  function(req, res){
-    //successful authentication should redirect to home.
-    res.redirect("/");
-  });
-
+  passport.authenticate('facebook', {
+    successRedirect: '/topics',
+    failureRedirect: '/login'
+  }));
 
 app.listen(3000, function() {
   console.log("Got this blicky up and running!");
