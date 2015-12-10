@@ -21,6 +21,7 @@ $( document ).ready(function() {
     });
   };
 
+//populates topics page with articles for the first topic when a user is logged in. 
   var topic = $('.topic')[0].innerHTML;
   searchKeyword(topic);
 
