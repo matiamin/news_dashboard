@@ -46,8 +46,12 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add Topic <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">       </a></li>
-                <li><a href="#">       </a></li>
+                //Adding from to the dropdown in navbar
+                <form action="/topics" method="post">
+                  <label>Keyword:</label>
+                  <input type="text" name="keyword">
+                  <input type="submit">
+                </form>
                 <!-- <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li> -->
               </ul>
