@@ -14,14 +14,14 @@ $( document ).ready(function() {
       //Empties the articles div after a successful api call.
       $('.articles').empty();
       for(var i = 0; i < 5; i++) {
-        $('.articles').append("<div class='article'><h3><a href='" + response.d.results[0].News[i].Url + "'>" + response.d.results[0].News[i].Title + "</a></h3><p>News Source: " + response.d.results[0].News[i].Source + "</p><p>" + response.d.results[0].News[i].Date + "</p><p>" + response.d.results[0].News[i].Description +  "</p></div>");
+        $('.articles').append("<div class='article'><h3><a href='" + response.d.results[0].News[i].Url + "'>" + response.d.results[0].News[i].Title + "</a></h3><p>News Source: " + response.d.results[0].News[i].Source + "</p><p>" + response.d.results[0].News[i].Date + "</p><p>" + response.d.results[0].News[i].Description +  "</p><hr></div>");
       }
     }).fail(function() {
       console.log('failed!');
     });
   };
 
-//populates topics page with articles for the first topic when a user is logged in. 
+//populates topics page with articles for the first topic when a user is logged in.
   var topic = $('.topic')[0].innerHTML;
   searchKeyword(topic);
 

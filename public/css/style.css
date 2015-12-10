@@ -1,7 +1,6 @@
 body {
   background-color : #C0C0C0;
   font-family: Arial, Helvetica, sans-serif;
-
 }
 
 .navbar-default {
@@ -9,6 +8,7 @@ body {
 }
 
 .navbar-default .navbar-header .navbar-brand {
+  padding-left: 130px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
   font-size: 40px;
@@ -23,12 +23,13 @@ body {
 }
 
 .article {
-  margin: 30px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.date {
-  font-weight: 400;
-}
+
 
 /*video#bgvid{
   position: fixed;
@@ -39,4 +40,4 @@ body {
   width: auto;
   height: auto;
   background-size: cover;
-}*/
+}
