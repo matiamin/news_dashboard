@@ -19,57 +19,56 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <!-- <ul> -->
+        <!-- <ul> -->
         <ul class="nav navbar-nav navbar-right">
-      {{#if currentUser}}
-        <li><a href="/logout">Logout</a></li<a>
-      {{else}}
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign up</a></li>
-      {{/if}}
-        </ul>
-    <!-- </ul> -->
-    {{#if currentUser}}
-
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Topics<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              {{#each currentUser.topics}}
+          {{#if currentUser}}
+          <li><a href="/logout">Logout</a></li<a>
+            {{else}}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign up</a></li>
+            {{/if}}
+          </ul>
+          <!-- </ul> -->
+          {{#if currentUser}}
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Topics<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {{#each currentUser.topics}}
                 <li> <a href='#' value={{keyword}} class='topic'>{{keyword}}</a></li>
-              {{/each}}
-              <!-- <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li> -->
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add Topic <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">       </a></li>
-              <li><a href="#">       </a></li>
-              <!-- <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li> -->
-            </ul>
-          </li>
-        </ul>
-        {{/if}}
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <div class="row articles">
-    <!-- <div class="col-md-9"><h2>Article 1</h2></div>
-    <div class="col-md-3">Twitter</div>
-    <div class="col-md-9"><h2>Article 2</h2></div>
-    <div class="col-md-3">Twitter</div>
-    <div class="col-md-9"><h2>Article 3</h2></div>
-    <div class="col-md-3">Twitter</div>
-    <div class="col-md-9"><h2>Article 4</h2></div>
-    <div class="col-md-3">Twitter</div>
-    <div class="col-md-9"><h2>Article 5</h2></div>
-    <div class="col-md-3">Twitter</div> -->
-  </div>
-  {{{body}}}
-</body>
-</html>
+                {{/each}}
+                <!-- <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li> -->
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add Topic <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">       </a></li>
+                <li><a href="#">       </a></li>
+                <!-- <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li> -->
+              </ul>
+            </li>
+          </ul>
+          {{/if}}
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="row articles">
+      <!-- <div class="col-md-9"><h2>Article 1</h2></div>
+      <div class="col-md-3">Twitter</div>
+      <div class="col-md-9"><h2>Article 2</h2></div>
+      <div class="col-md-3">Twitter</div>
+      <div class="col-md-9"><h2>Article 3</h2></div>
+      <div class="col-md-3">Twitter</div>
+      <div class="col-md-9"><h2>Article 4</h2></div>
+      <div class="col-md-3">Twitter</div>
+      <div class="col-md-9"><h2>Article 5</h2></div>
+      <div class="col-md-3">Twitter</div> -->
+    </div>
+    {{{body}}}
+  </body>
+  </html>
