@@ -1,6 +1,17 @@
-body {
-  background-color : #C0C0C0;
-  font-family: Arial, Helvetica, sans-serif;
+body p {
+  background-color : #FFF;
+  font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+.form-group {
+  font-family: 'Roboto', Helvetica, sans-serif;
+}
+.fa-sign-in {
+  font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+.btn {
+  font-family: 'Roboto', Helvetica, sans-serif;
 }
 
 .navbar-default {
@@ -9,14 +20,14 @@ body {
 
 .navbar-default .navbar-header .navbar-brand {
   padding-left: 130px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Helvetica, sans-serif;
   font-weight: 800;
   font-size: 40px;
   color: #00BBFF;
 }
 
 .navbar-default .navbar-right {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Helvetica, sans-serif;
   font-weight: 600;
   color: #FFF;
   font-size: 15px;
@@ -29,9 +40,13 @@ body {
   margin-bottom: 20px;
 }
 
+.dropdown-menu {
+  font-weight: 400;
+  color: black;
+}
 
 
-/*video#bgvid{
+video#bgvid{
   position: fixed;
   right: 0;
   bottom: 0;
