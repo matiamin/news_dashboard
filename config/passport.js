@@ -110,7 +110,6 @@ passport.use(new FacebookStrategy({
   callbackURL: process.env.FACEBOOK_CALLBACK_URL
 },
 function(token, refreshToken, profile, done){
-function(token, refreshToken, profile, done)
   // asynchronous
   process.nextTick(function(){
     //find the user in the database on their facebook
