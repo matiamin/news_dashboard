@@ -1,8 +1,20 @@
+// var env = require("../env");
 //requires mongoose dependencies
 var mongoose = require("mongoose");
 //connects us to the users database in mongo
 //is that the url? Ask John.
-var conn = mongoose.connect("mongodb://localhost/users");
+// var conn = mongoose.connect(env.mongolab_url);
+if (process.env.NODE_ENV === 'development') {
+  mongoose.connect('mongodb://localhost/daily');
+}
+else {
+  mongoose.connect('mongodb://'+ process.env.MONGOLAB_USER +':'+ process.env.MONGOLAB_PASS +'@ds027295.mongolab.com:27295/daily');
+}
+var db = mongoose.connection;
+// TODO: this is from mongoose quickstart -- look into exactly what it does (the console.error bit)
+db.on('error', console.error.bind(console, 'connection error:'));
+
+
 //require our model definitions we defined earlier
 var UserModel = require("../models/user");
 var TopicModel = require("../models/topic");
