@@ -44,7 +44,7 @@ app.use(function (req, res, next) {
 
 // home page
 app.get('/', function(req, res){
-  res.render('users/index.hbs', { layout: false}); //
+  res.render('users/index.hbs', { layout: false}); 
 });
 
 app.get("/login", usersController.getLogin);
