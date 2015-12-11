@@ -6,7 +6,7 @@ var Schema          = require("../db/schema");
 // (3) Env: so we can access our Twitter API information.
 var TwitterStrategy = require('passport-twitter').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
-var env             = require('../env');
+// var env             = require('../env');
 
 //Creating a new User based on the information passed to us from Twitter.
 module.exports = function(passport) {
@@ -71,9 +71,9 @@ module.exports = function(passport) {
 
   //TWITTER STRATEGY
   passport.use("twitter", new TwitterStrategy({
-    consumerKey: env.twitter.consumerKey,
-    consumerSecret: env.twitter.consumerSecret,
-    callbackURL: env.twitter.callbackURL
+    consumerKey: process.env.TWIITER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+    callbackURL: process.env.TWITTER_CALLBACK_URL
   },
   function(token, secret, profile, done){
     process.nextTick(function(){
@@ -105,9 +105,9 @@ module.exports = function(passport) {
 
 //FACEBOOK STRATEGY
 passport.use(new FacebookStrategy({
-  clientID : env.facebook.consumerKey,
-  clientSecret: env.facebook.consumerSecret,
-  callbackURL: env.facebook.callbackURL
+  clientID: process.env.FACEBOOK_CONSUMER_KEY,
+  clientSecret: process.env.FACEBOOK_CONSUMER_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL
 },
 function(token, refreshToken, profile, done){
   // asynchronous
