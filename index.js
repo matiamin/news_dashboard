@@ -95,6 +95,6 @@ app.get('/auth/facebook/callback',
     failureRedirect: '/login'
   }));
 
-app.listen(process.env.PORT || 3000, function()
+app.listen(process.env.PORT || 3000, function(){
   console.log("Got this blicky up and running on port:", process.env.PORT || 3000);
 });
