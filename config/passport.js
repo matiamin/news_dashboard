@@ -105,8 +105,8 @@ module.exports = function(passport) {
 
 //FACEBOOK STRATEGY
 passport.use(new FacebookStrategy({
-  consumerKey: process.env.FACEBOOK_CONSUMER_KEY,
-  consumerSecret: process.env.FACEBOOK_CONSUMER_SECRET,
+  clientID: process.env.FACEBOOK_CONSUMER_KEY,
+  clientSecret: process.env.FACEBOOK_CONSUMER_SECRET,
   callbackURL: process.env.FACEBOOK_CALLBACK_URL
 },
 function(token, refreshToken, profile, done){
