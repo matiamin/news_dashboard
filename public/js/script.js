@@ -30,3 +30,5 @@ $( document ).ready(function() {
     searchKeyword($(this).text());
   });
 });
+
+// jsm: There needs to be lot more going on in the front end. Doesn't need to use OOJs but does need API calls to your own backend.
