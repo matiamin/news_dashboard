@@ -98,3 +98,5 @@ app.get('/auth/facebook/callback',
 app.listen(process.env.PORT || 3000, function(){
   console.log("Got this blicky up and running on port:", process.env.PORT || 3000);
 });
+
+// jsm: This could use a little tidying. A router would help a lot with that

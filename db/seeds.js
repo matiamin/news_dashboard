@@ -2,7 +2,7 @@
 //requires mongoose dependencies
 var mongoose = require("mongoose");
 //connects us to the users database in mongo
-//is that the url? Ask John.
+//is that the url? Ask John.  // jsm: yes, lines below connect to the daily database
 // var conn = mongoose.connect(env.mongolab_url);
 if (process.env.NODE_ENV === 'development') {
   mongoose.connect('mongodb://localhost/daily');
@@ -63,3 +63,5 @@ for(var i = 0; i < users.length; i++){
     }
   });
 }
+
+// jsm: Great comments on what's going on here

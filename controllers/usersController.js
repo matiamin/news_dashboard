@@ -15,7 +15,7 @@ var usersController = {
     var loginProperty = passport.authenticate("local-login", {
       successRedirect : "/topics",
       failureRedirect : "/login",
-      // failureFlash : true
+      // failureFlash : true // jsm: no need for this if you aren't using a flash notification for login
     });
     return loginProperty(req, res);
   },
@@ -37,3 +37,5 @@ var usersController = {
 };
 
 module.exports = usersController;
+
+// jsm: these look good!

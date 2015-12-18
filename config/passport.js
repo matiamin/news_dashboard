@@ -141,3 +141,5 @@ function(token, refreshToken, profile, done){
   });
 }));
 };
+
+// jsm: Looks good here. The twitter response will include email information. Could you include logic so that a user that is signed up locally can log in with twitter without creating a new account?
